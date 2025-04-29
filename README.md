@@ -15,14 +15,13 @@ O sistema realiza as seguintes funções:
    - Modo Simples: Exibição direta das cores e valores
    - Modo Avançado: Representação gráfica do resistor com as cores correspondentes
 6. Visualização das cores na matriz de LEDs RGB 5x5
-7. Alternância entre modos de exibição através do Botão A
 
 ## Especificações Técnicas
 
 - **Faixa de Medição**: 510Ω até 100kΩ
 - **Série de Resistores**: E24 (tolerância de 5%)
 - **Resolução ADC**: 12 bits (4095 níveis)
-- **Tensão de Referência**: 3.31V
+- **Tensão de Referência**: 3.3V
 - **Resistor de Referência**: 10kΩ
 
 ## Montagem do Circuito
@@ -32,7 +31,6 @@ O sistema realiza as seguintes funções:
 - 1x Display OLED SSD1306
 - 1x Matriz de LEDs RGB WS2812B 5x5
 - 1x Resistor 10kΩ (referência)
-- 2x Botões de pressão
 - Jumpers e conectores
 
 ### Conexões
@@ -61,21 +59,18 @@ O sistema realiza as seguintes funções:
 
 ## Vídeo Demonstrativo
 
-[![Vídeo do Ohmímetro em Funcionamento](link_para_thumbnail)](link_para_seu_video)
+[![Watch the video](https://img.youtube.com/vi/rP1O01GgHjk/maxresdefault.jpg)](https://youtu.be/rP1O01GgHjk)
 
-> **Nota**: Substitua `link_para_thumbnail` pelo link da imagem de prévia do vídeo e `link_para_seu_video` pelo link do vídeo demonstrativo.
+### [Watch this video on YouTube](https://youtu.be/rP1O01GgHjk)
 
 ## Observações e Limitações
 
 - O sistema possui proteção contra valores fora da faixa (510Ω - 100kΩ)
 - Implementação do modo BOOTSEL por botão externo (Botão B - GPIO 6) para facilitar o desenvolvimento
 - A precisão da medição pode variar dependendo da qualidade do resistor de referência
-- Para resistores fora da faixa suportada, o sistema pode apresentar medidas imprecisas
+- Para resistores fora da faixa suportada ou acima do valor de referência, o sistema pode apresentar medidas imprecisas
 
 ## Autor
 
 Por: Kaian de Souza Gonçalves
 
-## Licença
-
-Este projeto é distribuído sob a licença [Inserir tipo de licença]. Veja o arquivo `LICENSE` para mais detalhes.
