@@ -1,3 +1,17 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.1.1)
+set(toolchainVersion 14_2_Rel1)
+set(picotoolVersion 2.1.1)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 
 
 
@@ -16,7 +30,13 @@ pico_sdk_init()
 add_executable(${PROJECT_NAME}  
         Ohmimetro01.c  # Código principal 
         lib/ssd1306.c # Biblioteca para o display OLED
+        lib/ws2818b.c
         )
+
+# Gera o arquivo .pio.h do programa PIO DEPOIS do executável ser definido
+pico_generate_pio_header(${PROJECT_NAME}
+${CMAKE_CURRENT_LIST_DIR}/lib/ws2818b.pio
+)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
         PICO_PRINTF_SUPPORT_FLOAT=1 
@@ -27,6 +47,7 @@ target_link_libraries(${PROJECT_NAME}
         pico_stdlib 
         hardware_i2c
         hardware_adc
+        hardware_pio
         )
 
 pico_enable_stdio_usb(${PROJECT_NAME} 1)

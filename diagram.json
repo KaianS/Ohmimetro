@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "Wilton L. Silva",
+  "author": "Wilton L. Silva (modificado)",
   "editor": "wokwi",
   "parts": [
     {
@@ -51,32 +51,39 @@
     },
     {
       "type": "wokwi-resistor",
-      "id": "r2",
+      "id": "rx",
       "top": -33.6,
       "left": 105.05,
       "rotate": 90,
-      "attrs": { "value": "10000" }
+      "attrs": { "value": "4700" }
     },
     {
       "type": "wokwi-text",
       "id": "text1",
       "top": -48,
       "left": 144,
-      "attrs": { "text": "Até 6,6V" }
+      "attrs": { "text": "Resistor a medir (Rx)" }
     },
     {
       "type": "wokwi-text",
       "id": "text2",
       "top": 0,
       "left": 134.4,
-      "attrs": { "text": "Até 3,3V" }
+      "attrs": { "text": "Resistor de referência (10k)" }
     },
     {
       "type": "wokwi-text",
       "id": "text3",
       "top": -19.2,
       "left": -134.4,
-      "attrs": { "text": "PB B" }
+      "attrs": { "text": "Botão BOOTSEL" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 70,
+      "left": 95.45,
+      "attrs": { "text": "Ponto médio ao ADC (GPIO 28)" }
     }
   ],
   "connections": [
@@ -92,8 +99,9 @@
     [ "pico:GND.6", "bb1:17b.j", "black", [ "h0" ] ],
     [ "r1:1", "bb1:11b.i", "", [ "$bb" ] ],
     [ "r1:2", "bb1:17b.i", "", [ "$bb" ] ],
-    [ "r2:1", "bb1:5b.h", "", [ "$bb" ] ],
-    [ "r2:2", "bb1:11b.h", "", [ "$bb" ] ]
+    [ "rx:1", "bb1:5b.h", "", [ "$bb" ] ],
+    [ "rx:2", "bb1:11b.h", "", [ "$bb" ] ],
+    [ "pico:3V3", "bb1:5b.j", "red", [ "h0" ] ]
   ],
   "dependencies": {}
 }
